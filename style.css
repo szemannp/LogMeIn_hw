@@ -1,0 +1,87 @@
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background: #eaeaea;
+}
+
+#gameboard {
+  width: 500px;
+  height: 600px;
+  background-color: #6e6e6e;
+  border: 1px solid, #555;
+  margin: 100px auto;
+  box-shadow: 6px 16px 6px #bbb;
+  padding: 20px;
+  overflow: auto;
+  align-content: center;
+}
+
+#gameboard div {
+  width: 310px;
+  margin: auto;
+  clear: both;
+}
+
+#gameboard .tile {
+  width: 100px;
+  height: 100px;
+  margin: 1px;
+  border: 0px;
+  float: left;
+  font-weight: bold;
+  font-size: 68px;
+  font-family: monospace;
+  outline: none;
+  background: #f3843e;
+  color: #efefef;
+}
+
+#gameboard .tile:hover {
+  background: #ff9900;
+}
+
+#gameboard .tile:active {
+  background: #ff5a09;
+}
+
+#status {
+  color: #eaeaea;
+  height: 110px;
+  padding: 30px 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: monospace;
+}
+
+#restart {
+  width: 300px;
+  height: 100px;
+  border: 1px solid, #555;
+  margin: 0px auto;
+  box-shadow: 2px 5px 2px #ff9900;
+  padding: 0px;
+  overflow: auto;
+  align-content: center;
+  box-sizing: border-box;
+  background: #f3843e;
+}
+
+#resbtn {
+  width: 310px;
+  height: 100px;
+  box-sizing: border-box;
+  margin: auto;
+  border: 0px;
+  font-weight: bold;
+  font-size: 36px;
+  font-family: monospace;
+  outline: none;
+  background: #f3843e;
+  color: #efefef;
+  align-self: center;
+}
+
+#resbtn:hover {
+  background: #ff5a09;
+}
