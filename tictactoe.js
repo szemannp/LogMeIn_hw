@@ -102,17 +102,15 @@ var resetGame = function() {
 };
 
 var StatusReport = function(element) {
-  var target = element;
   function setText(message) {
-    target.innerHTML = message;
+    element.innerHTML = message;
   }
   return {sendMessage: setText};
 };
 
 var game = function() {
   var tiles = document.querySelectorAll('#gameboard .tile');
-  loadit();
-  localStorage.saved = [];
+  tryLoad();
   var players = ['X', 'O'];
   var currentTurn = 0;
   var isOver = false;
@@ -142,10 +140,10 @@ var game = function() {
 
   for (var i = 0; i < tiles.length; i++) {
     tiles[i].addEventListener('click', function() {
-      if (!isValid(this)) {
+      if (!isValid(event.target)) {
         report.sendMessage('Invalid move, the tile is already occupied');
       } else {
-        draw(this, 'X');
+        draw(event.target, 'X');
         stateLoop();
         if (!isOver) {
           randomAi(tiles);
@@ -155,7 +153,17 @@ var game = function() {
     });
   }
 
-  function loadit() {
+  function tryLoad() {
+    try {
+      loadIt();
+    } catch (e) {
+      return;
+    } finally {
+      localStorage.saved = [];
+    }
+  }
+
+  function loadIt() {
     var container = localStorage.saved.replace(/,/g, '');
     for (var h = 0; h < container.length; h++) {
       if (container[h] === 'O' || container[h] === 'X') {
