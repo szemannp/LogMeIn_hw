@@ -50,13 +50,16 @@ var game = (function() {
     }
     return nodes;
   };
+
   var randomAi = function(tilesArray) {
     var nodes = parseTiles(tilesArray);
     var available = nodes.filter(function(node) {
       return node.innerHTML.length === 0;
     });
     var choice = Math.floor(Math.random() * (available.length));
-    draw(available[choice], 'O');
+    if (available.length > 0) {
+      draw(available[choice], 'O');
+    }
     return;
   };
 
@@ -66,6 +69,7 @@ var game = (function() {
     }
     return;
   };
+
   function tryLoad() {
     try {
       loadIt();
